@@ -1,3 +1,5 @@
+package com.gildedrose;
+
 public class Main {
     public static void main(String[] args) {
         Item[] items = new Item[]{
@@ -11,7 +13,7 @@ public class Main {
 
         GildedRose app = new GildedRose(items);
 
-        for (int i = 0; i < 5; i++) { //Dias
+        for (int i = 0; i < 5; i++) {
             System.out.println("Día " + i);
             for (Item item : items) {
                 System.out.println(item);
