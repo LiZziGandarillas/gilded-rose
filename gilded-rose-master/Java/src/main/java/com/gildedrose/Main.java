@@ -11,7 +11,7 @@ public class Main {
 
         GildedRose app = new GildedRose(items);
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) { //Dias
             System.out.println("Día " + i);
             for (Item item : items) {
                 System.out.println(item);
