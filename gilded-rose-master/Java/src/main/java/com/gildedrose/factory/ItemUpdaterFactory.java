@@ -5,7 +5,6 @@ import com.gildedrose.updater.*;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
 
 /**
  * @author Lizeth Gandarillas
@@ -24,7 +23,7 @@ public class ItemUpdaterFactory {
         strategies.put(BACKSTAGE_PASSES, new BackstagePassUpdater());
         strategies.put(SULFURAS, new SulfurasUpdater());
 
-        strategies.put(CONJURED, new ConjuredItemUpdater()); // Nuevo tipo agregado
+        strategies.put(CONJURED, new ConjuredItemUpdater());
     }
 
     public static ItemUpdater createUpdater(Item item) {
