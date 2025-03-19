@@ -7,19 +7,15 @@ import com.gildedrose.Item;
  */
 public class StandardItemUpdater extends AbstractItemUpdater {
 
-    public StandardItemUpdater(Item item) {
-        super(item);
+    @Override
+    protected void updateQuality(Item item) {
+        decreaseQuality(item);
     }
 
     @Override
-    protected void updateQuality() {
-        decreaseQuality();
-    }
-
-    @Override
-    protected void updateExpired() {
-        if (isExpired()) {
-            decreaseQuality();
+    protected void updateExpired(Item item) {
+        if (isExpired(item)) {
+            decreaseQuality(item);
         }
     }
 }

@@ -7,22 +7,18 @@ import com.gildedrose.Item;
  */
 public class SulfurasUpdater extends AbstractItemUpdater {
 
-    public SulfurasUpdater(Item item) {
-        super(item);
-    }
-
     @Override
-    protected void updateQuality() {
+    protected void updateQuality(Item item) {
         // No change in quality
     }
 
     @Override
-    protected void updateSellIn() {
+    protected void updateSellIn(Item item) {
         // No change in sellIn
     }
 
     @Override
-    protected void updateExpired() {
+    protected void updateExpired(Item item) {
         // Legendary items never expire
     }
 }

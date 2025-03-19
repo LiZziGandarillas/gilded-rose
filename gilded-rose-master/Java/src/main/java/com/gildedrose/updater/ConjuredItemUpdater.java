@@ -7,21 +7,17 @@ import com.gildedrose.Item;
  */
 public class ConjuredItemUpdater extends AbstractItemUpdater {
 
-    public ConjuredItemUpdater(Item item) {
-        super(item);
+    @Override
+    protected void updateQuality(Item item) {
+        decreaseQuality(item);
+        decreaseQuality(item);
     }
 
     @Override
-    protected void updateQuality() {
-        decreaseQuality();
-        decreaseQuality();
-    }
-
-    @Override
-    protected void updateExpired() {
-        if (isExpired()) {
-            decreaseQuality();
-            decreaseQuality();
+    protected void updateExpired(Item item) {
+        if (isExpired(item)) {
+            decreaseQuality(item);
+            decreaseQuality(item);
         }
     }
 }

@@ -7,26 +7,22 @@ import com.gildedrose.Item;
  */
 public class BackstagePassUpdater extends AbstractItemUpdater {
 
-    public BackstagePassUpdater(Item item) {
-        super(item);
-    }
-
     @Override
-    protected void updateQuality() {
-        increaseQuality();
+    protected void updateQuality(Item item) {
+        increaseQuality(item);
 
         if (item.sellIn < 11) {
-            increaseQuality();
+            increaseQuality(item);
         }
 
         if (item.sellIn < 6) {
-            increaseQuality();
+            increaseQuality(item);
         }
     }
 
     @Override
-    protected void updateExpired() {
-        if (isExpired()) {
+    protected void updateExpired(Item item) {
+        if (isExpired(item)) {
             item.quality = 0;
         }
     }

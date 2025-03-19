@@ -7,19 +7,15 @@ import com.gildedrose.Item;
  */
 public class AgedBrieUpdater extends AbstractItemUpdater {
 
-    public AgedBrieUpdater(Item item) {
-        super(item);
+    @Override
+    protected void updateQuality(Item item) {
+        increaseQuality(item);
     }
 
     @Override
-    protected void updateQuality() {
-        increaseQuality();
-    }
-
-    @Override
-    protected void updateExpired() {
-        if (isExpired()) {
-            increaseQuality();
+    protected void updateExpired(Item item) {
+        if (isExpired(item)) {
+            increaseQuality(item);
         }
     }
 }

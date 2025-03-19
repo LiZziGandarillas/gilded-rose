@@ -1,8 +1,10 @@
 package com.gildedrose.updater;
 
+import com.gildedrose.Item;
+
 /**
  * @author Lizeth Gandarillas
  */
 public interface ItemUpdater {
-    void updateItem();
+    void updateItem(Item item);
 }
