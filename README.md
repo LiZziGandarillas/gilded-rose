@@ -20,6 +20,63 @@ Cada día:
 
 ## Solución Aplicando SOLID y Patrones de Diseño
 
+### 0. Abstracción
+```java
+if (items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+    // do someting
+} else if (items[i].name.equals("Aged Brie")) {
+    // do something else
+} else if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+    // do something else
+} else {
+    // do something else
+}
+```
+```java
+if (items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+    // does nothing
+}
+else if (items[i].name.equals("Aged Brie")) {
+    if (items[i].quality < 50) {
+        items[i].quality = items[i].quality + 1;
+    }
+    items[i].sellIn = items[i].sellIn - 1;
+    if (items[i].sellIn < 0) {
+        if (items[i].quality < 50) {
+            items[i].quality = items[i].quality + 1;
+        }
+    }
+} else if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+    if (items[i].quality < 50) {
+        items[i].quality = items[i].quality + 1;
+        if (items[i].sellIn < 11) {
+            if (items[i].quality < 50) {
+                items[i].quality = items[i].quality + 1;
+            }
+        }
+        if (items[i].sellIn < 6) {
+            if (items[i].quality < 50) {
+                items[i].quality = items[i].quality + 1;
+            }
+        }
+    }
+    items[i].sellIn = items[i].sellIn - 1;
+    if (items[i].sellIn < 0) {
+        items[i].quality = items[i].quality - items[i].quality;
+    }
+} else {
+    if (items[i].quality > 0) {
+        items[i].quality = items[i].quality - 1;
+    }
+    items[i].sellIn = items[i].sellIn - 1;
+    if (items[i].sellIn < 0) {
+        if (items[i].quality > 0) {
+            items[i].quality = items[i].quality - 1;
+        }
+    }
+}
+```
+
 ### 1. Creación de la interfaz `ItemUpdater`
 **Patrón aplicado:** Strategy  
 **Principio SOLID:** DIP (Dependency Inversion)
